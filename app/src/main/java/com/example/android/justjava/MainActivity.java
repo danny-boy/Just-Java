@@ -4,9 +4,11 @@ import android.icu.text.NumberFormat;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increment(View view) {
-        quantity = quantity + 1;
+        quantity = quantity + 100;
         displayQuantiy(quantity);
     }
 
@@ -42,11 +44,15 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         int price = calculatePrice();
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        EditText name = (EditText) findViewById(R.id.name_input);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+        Editable customerName = name.getText();
         //Log.v("MainActivity", "Whipped Cream Checkbox is: " + hasWhippedCream);
         //String priceMessage = "Amount Due: $" + price;
         //priceMessage = priceMessage +  "\n\nThank You!";
-        displayMessage(createOrderSummary(price, hasWhippedCream));
+        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate, customerName));
     }
 
     /**
@@ -78,22 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
     ;
 
-    private String createOrderSummary(int price, boolean addWhippedCream) {
-        String msg = "Name: DannyBoy";
+    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, Editable customerName) {
+        String msg = "Name: " + customerName;
         msg += "\nAdd whipped cream? " + addWhippedCream;
+        msg += "\nAdd chocolate? " + addChocolate;
         msg += "\nQuantity: ";
         msg += quantity;
         msg += "\nTotal: $" + price;
         msg += "\nThank You!";
         return msg;
     }
-
-    ;
 }
-    //private boolean isChecked(View view){
-    //    boolean checked = ((CheckBox) view).isChecked();
-    //    return checked;
-    //};
 
 
 
