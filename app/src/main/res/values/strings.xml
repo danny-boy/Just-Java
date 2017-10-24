@@ -8,5 +8,6 @@
     <string name="zero">0</string>
     <string name="increment">+</string>
     <string name="order_summary">Order Summary</string>
+    <string name="price">$0</string>
     <string name="order">Order</string>
 </resources>
