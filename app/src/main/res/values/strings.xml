@@ -1,5 +1,7 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
+
+    <!-- from activity_mail.xml -->
     <string name="toppings">Toppings</string>
     <string name="whipped_cream">Whipped Cream</string>
     <string name="chocolate">Chocolate</string>
@@ -10,4 +12,15 @@
     <string name="order_summary">Order Summary</string>
     <string name="price">$0</string>
     <string name="order">Order</string>
+
+    <!-- from MainActivity.java [createOrderSummary() method] -->
+    <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_whip">&#xD; Add whipped cream? &#160;</string>
+    <string name="order_summary_chocolate">&#xD; Add chocolate? &#160;</string>
+    <string name="order_summary_quantity">&#xD; Quantity: &#160;</string>
+    <string name="order_summary_total">&#xD; Total: &#160; $</string>
+    <string name="order_summary_thanks">&#xD; Thank You! &#160;</string>
+
+    <!-- from MainActivity.java [submitOrder() method] -->
+    <string name="submit_order_subject">Just Java Order for&#160;</string>
 </resources>

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java Order for " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.submit_order_subject) + name);
         intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, hasWhippedCream, hasChocolate, name));
         if (intent.resolveActivity(getPackageManager()) != null){
             startActivity(intent);
@@ -104,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String customerName) {
-        String msg = "Name: " + customerName;
-        msg += "\nAdd whipped cream? " + addWhippedCream;
-        msg += "\nAdd chocolate? " + addChocolate;
-        msg += "\nQuantity: ";
+        String msg = getString(R.string.order_summary_name, customerName);
+        msg += "\n" + getString(R.string.order_summary_whip) + addWhippedCream;
+        msg += "\n" + getString(R.string.order_summary_chocolate) + addChocolate;
+        msg += "\n" + getString(R.string.order_summary_quantity);
         msg += quantity;
-        msg += "\nTotal: $" + price;
-        msg += "\nThank You!";
+        msg += "\n" + getString(R.string.order_summary_total) + price;
+        msg += "\n" + getString(R.string.order_summary_thanks);
         return msg;
     }
 }
